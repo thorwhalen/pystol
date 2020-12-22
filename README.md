@@ -89,6 +89,7 @@ A (py2store-based) ridiculously simple search engine maker.
 
 ## invest
 Python access to structure stock market information
+
 [more info](https://github.com/thorwhalen/invest)
 
 ## cult
