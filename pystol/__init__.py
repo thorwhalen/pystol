@@ -1,65 +1,25 @@
-import os
-from pystol.util import ModuleNotFoundIgnore
-
-file_sep = os.path.sep
-
-from py2store.util import lazyprop, groupby, regroupby, igroupby
-from py2store.trans import add_ipython_key_completions
-
-# Imports to be able to easily get started...
-from py2store.base import (
-    Collection,
-    KvReader,
-    KvPersister,
-    Reader,
-    Persister,
-    kv_walk,
+# data tools
+import (
+    py2store,  # Storage CRUD how and where you want it.
+    slang,  # Basic tools for a "syntactic approach" to sound recognition.
+    lined,  # Nibble utils to build pipelines.
+    haggle,  # A very convenient tool to search, download, and use kaggle datasets as easily as it gets. Based on py2store.
+    stream2py  # Bring data streams to python, with ease.
 )
 
-from py2store.base import Store
-from py2store.trans import (
-    wrap_kvs,
-    disable_delitem,
-    disable_setitem,
-    mk_read_only,
-    kv_wrap,
-    cached_keys,
-    filt_iter,
-    filtered_iter,
-    add_path_get,
-    insert_aliases,
+# Deployment tools
+import (
+    oui,  # Reusable UI components for JavaScript with Python interfaces
+    py2http,  # Dispatching Python functions as http services.
+    http2py,  # Tools to create python binders to http web services. 
 )
 
-from py2store.caching import (
-    mk_cached_store,
-    store_cached,
-    store_cached_with_single_key,
-    ensure_clear_to_kv_store,
-    flush_on_exit,
-    mk_write_cached_store,
+# A selection of personal fun (or useful) projects that use the above.
+import (
+    graze,  # Cache the internet. 
+    grub,  # A ridiculously simple search engine maker.
+    invest,  # tools to get and organize quant data
+    cult, # Religious texts search engine. 18mn application of grub.
+    laugh, # A joke finder (and "generator")
+    elections, # A 2020 elections stats accessor.
 )
-
-from py2store.slib.s_zipfile import (
-    ZipReader,
-    ZipFilesReader,
-    FilesOfZip,
-    FlatZipFilesReader,
-)
-
-
-def kvhead(store, n=1):
-    """Get the first item of a kv store, or a list of the first n items"""
-    if n == 1:
-        for k in store:
-            return k, store[k]
-    else:
-        return [(k, store[k]) for i, k in enumerate(store) if i < n]
-
-
-def ihead(store, n=1):
-    """Get the first item of an iterable, or a list of the first n items"""
-    if n == 1:
-        for item in iter(store):
-            return item
-    else:
-        return [item for i, item in enumerate(store) if i < n]
