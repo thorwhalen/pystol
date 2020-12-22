@@ -87,6 +87,10 @@ A (py2store-based) ridiculously simple search engine maker.
 
 [more info](https://github.com/thorwhalen/grub)
 
+## invest
+Python access to structure stock market information
+[more info](https://github.com/thorwhalen/invest)
+
 ## cult
 Religious texts search engine. 18mn application of `grub`.
 
